@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--[if lt IE 9]>
+<script src="static/bower_components/html5shiv/dist/html5shiv.min.js"></script>
+<![endif]-->
+
+    <title>Something under the bed</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1,user-scalable=0,minimal-ui">
+	<link rel="manifest" href="static/assets/manifest.json">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<link rel="canonical" href="https://fixme">
+	<meta name=description content="fixme">
+	<meta property=og:title content="fixme">
+	<meta property=og:site_name content="fixme">
+	<meta property=og:description content="fixme">
+	<meta property=articlepublisher content="https://www.facebook.com/fixme">
+	<meta property=og:url content="https://fixme">
+	<meta property=og:type content="website">
+	<meta property=og:image content="https://fixme.jpg">
+	<meta name=twitter:card content="summary_large_image">
+	<meta name=twitter:site content="@fixme">
+	<meta name=twitter:title content="fixme">
+	<meta name=twitter:description content="fixme">
+	<meta name=twitter:url content="http://fixme">
+	<meta name=twitter:image content="http://fixme.jpg">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7650934/6608352/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="static/assets/fonts/stylesheet.css"/>
+    <link rel="stylesheet" type="text/css" href="static/assets/icons/style.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/styles.min.css"/>
+
+	<!-- FIXME insert google analytics here -->
+</head>
+
+<body>
+	<script>
+		dataLayer = [];
+	</script>
+    <!-- Google Tag Manager -->
+	<!-- FIXME insert google tag manager here -->
+    <!-- End Google Tag Manager -->
+    
+    <div class="logo" id="logowrap">
+    	<img src="static/img/logo.gif" alt="" id="logo"/>
+    	<div class="mask" id="mask"></div>
+	</div>
+
+	<div id="body">
+	<div class="page">
+    	<div class="floor pregame" id="floor">
+    		<div class="inner" id="bg">
+		    	<div class="scorewrap">
+		    		<div class="bg"></div>
+		    		<div class="score" id="threat"></div>
+		    	</div>
+		    	<div class="clockwrap time9pm" id="clock">
+		    		<div class="time hours"></div>
+		    		<div class="time mins"></div>
+		    	</div>
+	    		<div class="monster mon1" id="mon1"><div class="in"></div></div>
+	    		<div class="monster mon2" id="mon2"><div class="in"></div></div>
+	    		<div class="monster mon3" id="mon3"><div class="in"></div></div>
+	    		<div class="monster mon4" id="mon4"><div class="in"></div></div>
+	    		<div class="monster mon5" id="mon5"><div class="in"></div></div>
+	    		<div class="monster mon6" id="mon6"><div class="in"></div></div>
+	    		<div class="monster mon7" id="mon7"><div class="in"></div></div>
+	    		<div class="monster mon8" id="mon8"><div class="in"></div></div>
+	    		<div class="monster mon9" id="mon9"><div class="in"></div></div>
+
+	    		<div class="message hidden" id="intro">
+	    			<h1 class="title"><span class="large">Something under the bed</span></h1>
+	    			<div class="text">
+						<p>Can you survive the night?</p>
+		    			<p><span class="btn js-startgame">Play</span></p>
+			    	</div>
+	    		</div>
+	    		
+	    		<div class="message hidden" id="nextlevel">
+	    			<span class="title h1">You made it to <span class="js-levelcount"></span></span>
+	    			<div class="text">
+		    			<p>But the night isn't over yet.</p>
+		    			<p><span class="btn js-startgame">Next level</span></p>
+			    	</div>
+	    		</div>
+
+	    		<div class="message hidden" id="gameover">
+	    			<div class="title h1">
+						<span class="large">You survived to <span class="js-levelcount2"></span></span>
+					</div>
+	    			<div class="text">
+		    			<p><span class="js-levelmsg"></span></p>
+						<p>
+							<span class="btn js-share">Share</span>
+							<span class="btn js-startover js-resetclock">Try again</span>
+						</p>
+						<p><a href="https://builtvisible.com/" class="bvlogo" target="_blank"><img src="static/img/logo_b.svg" alt="Builtvisible"/></a></p>
+					</div>
+	    		</div>
+
+	    		<div class="message hidden" id="gamewon">
+	    			<span class="title h1"><span class="large">You did it!</span></span>
+	    			<div class="text">
+		    			<p>You made it safely through the night. Well done! <br/>Of course, it's only a matter of time until the sun goes down again...</p>
+						<p>
+							<span class="btn js-share">Share</span>
+							<span class="btn js-startover">Play again</span>
+						</p>
+						<p><a href="https://builtvisible.com/" class="bvlogo" target="_blank"><img src="static/img/logo_b.svg" alt="Builtvisible"/></a></p>
+					</div>
+	    		</div>
+
+				<div id="sharing" class="sharing js-sharing hidden">
+					<div class="mask js-close"></div>
+					<div class="icons">
+						<div class="title">Share <span class="close js-close" title="Close">x</span></div>
+						<ul class="links">
+							<li>
+								<a href="" class="link fb js-fb" title="Share on Facebook" target="_blank">
+									<span class="sharelink"><i class="icon-facebook"></i></span>
+									Facebook
+								</a>
+							</li>
+							<li class="desktop-hide">
+								<a href="" class="link wa js-wa" title="Share on Whatsapp" target="_blank">
+									<span class="sharelink"><i class="icon-whatsapp"></i></span>
+									Whatsapp
+								</a>
+							</li>
+							<li>
+								<a href="" class="link tw js-tw" title="Share on Twitter" target="_blank">
+									<span class="sharelink"><i class="icon-twitter"></i></span>
+									Twitter
+								</a>
+							</li>
+							<li>
+								<a href="" class="link gp js-gp" title="Share on Google+" target="_blank">
+									<span class="sharelink"><i class="icon-google"></i></span>
+									Google+
+								</a>
+							</li>
+							<li>
+								<a href="" class="link em js-em" title="Share via email" target="_blank">
+									<span class="sharelink"><i class="icon-envelope"></i></span>
+									Email
+								</a>
+							</li>
+						</ul>
+						<p class="align-center">Tap and hold to copy link</p>
+						<input type="url" value="https://builtvisible.com/something-under-the-bed/" class="linkbox"/>
+						<a href="https://builtvisible.com/" target="_blank" class="bvlogo small"><img src="static/img/logo_b.svg" alt="Builtvisible"/></a>
+					</div>
+				</div>
+				
+				<div class="orientation">
+					<div class="orientationmsg">
+						<div class="phoneimg"><img src="static/img/phone.svg" alt=""/></div>
+						<div class="text"><p>Please rotate your device to play.</p></div>
+					</div>
+				</div>
+	    	</div>
+    	</div>
+    </div>
+    </div>
+
+    <script src="static/bower_components/jquery/dist/jquery.min.js"></script>
+    <!--[if lt IE 9 ]>
+    <script>(function() {$('body').addClass('iex');})();</script>
+    <![endif]-->
+    <script src="static/js/main.min.js"></script>
+
+</body>
+</html>

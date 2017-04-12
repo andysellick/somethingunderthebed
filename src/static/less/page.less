@@ -1,0 +1,700 @@
+/* --page */
+    /* this file should contain html and body styles, and any other styles that relate to the general wrapping of every page e.g. a pagewrapping element */
+
+    html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+		position:relative;
+        font-family:Arial, Verdana, sans-serif;
+        font-size: 100%;
+        color:@black;
+    }
+    html,
+    body {
+		height:100%;
+		background:@black;
+	}
+
+    @transpeed: 0.3s;
+    
+    .logo {
+		position:fixed;
+		z-index:999;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		background:@white;
+		.flex;
+		.align-items(center);
+		.justify-content(center);
+		.mask {
+			display:none;
+			position:absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+			background:@black;
+		}
+	}
+
+	.pagewrapper {
+		position:fixed;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+	}
+    .page {
+		padding-bottom:50px;
+		margin:0 auto;
+		max-width:150vh;
+	}
+
+	.floor {
+		.aspect(58.8%);
+		.inner {
+			overflow:hidden;
+			background:url('../img/bg.svg') no-repeat 50% 0% transparent;
+			background-size:contain;
+			box-shadow:0 0 25px 20px rgba(0,0,0,1) inset;
+			
+			/* these elements aren't used, this is a trick to pre-cache these backgrounds */
+			&:before {
+				content:"";
+				width:0;
+				height:0;
+				background-image:url('../img/bg_fail.svg');
+			}
+			&:after {
+				content:"";
+				width:0;
+				height:0;
+				background-image:url('../img/bg_win.svg');
+			}
+
+			&.gameover {
+				background-image:url('../img/bg_fail.svg');
+			}
+			&.gamewon {
+				background-image:url('../img/bg_win.svg');
+			}
+		}
+
+		.monster {
+			position:absolute;
+			//z-index:2;
+			width:14%;
+			height:24%;
+			//background:red;
+			.transform-origin( 50% 50% );
+			.in {
+				position:absolute;
+				bottom:0;
+				left:0;
+				width:100%;
+				height:0%;
+				overflow:hidden;
+				.no-highlight;
+				&:before {
+					content:"";
+					position:absolute;
+					top:0;
+					left:0;
+					width:100%;
+					height:100%;
+					background-size:100% auto;
+					background-position:50% 0%;
+					background-repeat:no-repeat;
+					cursor:pointer;
+				}
+				&.hit {
+					.transparency(0.9);
+					&:after {
+						content:"";
+						position:absolute;
+						top:0;
+						left:25%;
+						width:50%;
+						height:50%;
+						background:url('../img/hit.svg') no-repeat 50% 50%;
+						background-size:contain;
+					}
+				}
+			}
+
+			&.mon1 {
+				top:52%;
+				left:61.9%;
+				.transform( rotate(90deg) );
+				.in {
+					&:before {
+						background-image:url('../img/errol.svg');
+					}
+					&.hit {
+					}
+				}
+			}
+			&.mon2 {
+				top:32%;
+				left:24.9%;
+				.transform( ~"rotate(-90deg) scale(0.9)" );
+				.in {
+					&:before {
+						background-image:url('../img/george.svg');
+					}
+					&.hit {
+					}
+				}
+			}
+			&.mon3 {
+				top:10.8%;
+				left:43%;
+				height:20.3%;
+				.transform( scale(0.9) );
+				.in {
+					&:before {
+						background-image:url('../img/stanley.svg');
+					}
+				}
+			}
+			&.mon4 {
+				top:35.6%;
+				left:8.8%;
+				.transform( ~"rotate(107deg) scale(0.7)" );
+				.in {
+					&:before {
+						background-image:url('../img/pubert.svg');
+					}
+				}
+			}
+			&.mon5 {
+				top:60.5%;
+				left:24.1%;
+				.transform( rotate(-90deg) );
+				.in {
+					&:before {
+						background-image:url('../img/hugh.svg');
+						background-size:30% auto;
+					}
+				}
+			}
+			&.mon6 {
+				top:59%;
+				left:79.1%;
+				.transform( ~"rotate(-4deg) scale(1.1)" );
+				.in {
+					&:before {
+						background-image:url('../img/hugh.svg');
+						background-size:30% auto;
+					}
+					&.hit {
+					}
+				}
+			}
+			&.mon7 {
+				top:12.1%;
+				left:13.1%;
+				.transform( ~"rotate(108deg) scale(0.7)" );
+				.in {
+					&:before {
+						background-image:url('../img/errol.svg');
+					}
+					&.hit {
+					}
+				}
+			}
+			&.mon8 {
+				top:9.4%;
+				left:68.6%;
+				.transform( ~"rotate(11.7deg) scale(0.7)" );
+				.in {
+					&:before {
+						background-image:url('../img/gary.svg');
+					}
+					&.hit {
+					}
+				}
+			}
+			&.mon9 {
+				top:34.9%;
+				left:51.5%;
+				.transform( scale(0.35) );
+				.in {
+					&:before {
+						background-image:url('../img/george.svg');
+					}
+					&.hit {
+					}
+				}
+			}
+		}
+		&.pregame {
+			.scorewrap,
+			.clockwrap {
+				.transform( translateY(-170%) );
+			}
+		}
+	}
+
+	.scorewrap {
+		position:absolute;
+		//overflow:hidden;
+		top:3%;
+		left:26%;
+		width:48%;
+		height:5%;
+		border:solid 5px @white;
+		.horizontal-gradient(#f9b233,0%,#e6332a,100%);
+		border-radius:100px;
+		.transition( all @transpeed );
+		.score {
+			position:absolute;
+			top:0;
+			right:0;
+			width:100%;
+			height:100%;
+			background:@white;
+		}
+	}
+
+	@clockspeed:17s;
+
+	.clockwrap {
+		position:absolute;
+		top:0;
+		right:2%;
+		width:8%;
+		height:15.6%;
+		background:url('../img/clock.svg') no-repeat 50% 0;
+		background-size:contain;
+		.transition( all @transpeed );
+		
+		&.reset {
+			.time {
+				&.hours {
+					.transform( rotate(-90deg) );
+					.transition( all 0s );
+				}
+				&.mins {
+					.transform( rotate(0deg) );
+					.transition( all 0s );
+				}
+			}
+		}
+
+		.time {
+			position:absolute;
+			bottom:8%;
+			left:10%;
+			width:80%;
+			height:70%;
+			.transform-origin( 50% 50% );
+			.transition( all @clockspeed );
+			transition-timing-function: linear;
+			&.hours {
+				.transform( rotate(-90deg) );
+				background:url('../img/hours.svg') no-repeat 50% 16%;
+				background-size:auto 43%;
+			}
+			&.mins {
+				background:url('../img/minutes.svg') no-repeat 50% 0%;
+				background-size:auto 53%;
+				.transition( all 0s );
+				&.active {
+					.transition( all @clockspeed );
+					transition-timing-function: linear;
+					.transform( rotate(360deg) );
+				}
+			}
+		}
+		&.time9pm {
+			.hours {
+				.transform( rotate(-90deg) );
+			}
+		}
+		&.time10pm {
+			.hours {
+				.transform( rotate(-60deg) );
+			}
+		}
+		&.time11pm {
+			.hours {
+				.transform( rotate(-30deg) );
+			}
+		}
+		&.time12am {
+			.hours {
+				.transform( rotate(0deg) );
+			}
+		}
+		&.time1am {
+			.hours {
+				.transform( rotate(30deg) );
+			}
+		}
+		&.time2am {
+			.hours {
+				.transform( rotate(60deg) );
+			}
+		}
+		&.time3am {
+			.hours {
+				.transform( rotate(90deg) );
+			}
+		}
+		&.time4am {
+			.hours {
+				.transform( rotate(120deg) );
+			}
+		}
+		&.time5am {
+			.hours {
+				.transform( rotate(150deg) );
+			}
+		}
+		&.time6am {
+			.hours {
+				.transform( rotate(180deg) );
+			}
+		}
+		&.time7am {
+			.hours {
+				.transform( rotate(210deg) );
+			}
+		}
+	}
+	
+	.message {
+		.no-select;
+		text-align:center;
+		.title {
+			position:absolute;
+			z-index:100;
+			top:7%;
+			left:0;
+			width:100%;
+			margin:0;
+			font-size:12vmin;
+			.transform-origin( 50% 50% );
+			.transition( all @transpeed * 2 );
+			.large {
+				font-size:140%;
+			}
+			p {
+				padding:0;
+			}
+		}
+		.subtitle {
+			padding:0;
+			font-size:7vmin;
+			line-height:1em;
+	        font-family: 'ghoulish_fright_aoeregular','Arial',sans-serif;
+			color:@green;
+			.shadow {
+				.niceshadow(@greenDark);
+			}
+		}
+		.text {
+			position:absolute;
+			z-index:100;
+			bottom:0;
+			left:0;
+			width:100%;
+			padding:3.1em 4em 0.8em 4em;
+			border-radius:2px 2px 0 0;
+			.transition( all @transpeed * 2 );
+			box-shadow:0 -25px 10px -10px rgba(0,0,0,0.9) inset;
+			background:url('../img/earl.svg') no-repeat 50% 0;
+			background-size:94% auto;
+			color:@white;
+			.font-sentinel-book();
+			font-size:3.2vmin;
+			&:before,
+			&:after {
+				content:"";
+				position:absolute;
+				top:0;
+				left:29.2%;
+				width:1%;
+				height:1.8em;
+				background:url('../img/eye.svg') no-repeat 50% 50%;
+				background-size:100% auto;
+		        .animation(eyeballs 8s ease-in infinite);
+			}
+			&:after {
+				left:69.8%;
+			}
+		}
+		&.hidden {
+			.title {
+				.transform(scale(0));
+			}
+			.text {
+				.transform(translateY(120%));
+			}
+		}
+	}
+
+	.keyframes(eyeballs; {
+		0% {
+			.transform( translateX(0) );
+		}
+		1% {
+			.transform( translateX(70%) );
+		}
+		10% {
+			.transform( translateX(70%) );
+		}
+		11% {
+			.transform( translateX(0%) );
+		}
+		50% {
+			.transform( translateX(0%) );
+		}
+		51% {
+			.transform( translateX(-70%) );
+		}
+		60% {
+			.transform( translateX(-70%) );
+		}
+		61% {
+			.transform( translateX(0%) );
+		}
+		100% {
+			.transform( translateX(0) );
+		}
+	});
+
+	.bvlogo {
+		display:inline-block;
+		width:15%;
+		&.small {
+			display:block;
+			padding:0;
+			width:30%;
+			margin:0 auto;
+			font-size:0%;
+		}
+	}
+
+	.sharing {
+		position:absolute;
+		z-index:100;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		overflow:hidden;
+		.flex;
+		.align-items(center);
+		.justify-content(center);
+
+		&.hidden {
+			z-index:-1;
+			.mask {
+				.transparency(0);
+			}
+			.icons {
+				.transform( translateY(200%) );
+			}
+		}
+
+		.mask {
+			position:absolute;
+			z-index:1;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+			background:rgba(0,0,0,0.4);
+			.transition( all @transpeed * 2 );
+		}
+
+		.icons {
+			z-index:2;
+			padding:0.5em 1.5em;
+			background:url('../img/wood.svg') repeat 0 0 #815631;
+			background-size:470% auto;
+			box-shadow:0 0 10px rgba(0,0,0,0.5);
+			font-family: 'ghoulish_fright_aoeregular','Arial',sans-serif;
+			color:@white;
+			font-size:4.1vmin;
+			.transition( all @transpeed * 2 );
+
+			.title {
+				margin-bottom:0.3em;
+				font-size:6vmin;
+				color:@green;
+				.niceshadow(@greenDark);
+			}
+			.close {
+				float:right;
+				text-shadow:none;
+				color:@white;
+				cursor:pointer;
+			}
+			.links {
+				li {
+					margin-bottom:0.4em;
+				}
+				.link {
+					display:block;
+					padding-right:1em;
+					color:@white;
+					text-decoration:none;
+					.sharelink {
+						display:inline-block;
+						width:2em;
+						height:1.9em;
+						margin:0 0.5em 0 0;
+						text-decoration:none;
+						font-size:3.5vmin;
+						line-height:2.2em;
+						background:@black;
+						border-radius:100%;
+						.content-box;
+						.transition( all @transpeed );
+						text-align:center;
+					}
+					&.fb {
+						.sharelink {
+							background-color:#3a589b;
+							border-bottom:solid 0.3em #264170;
+						}
+						&:hover {
+							.sharelink {
+								background-color:lighten(#3a589b,10%);
+								border-color:lighten(#264170,10%);
+							}
+						}
+					}
+					&.wa {
+						.sharelink {
+							background-color:#1ab344;
+							border-bottom:solid 0.3em #159c35;
+						}
+						&:hover {
+							.sharelink {
+								background-color:lighten(#1ab344,10%);
+								border-color:lighten(#159c35,10%);
+							}
+						}
+					}
+					&.tw {
+						.sharelink {
+							background-color:#598dca;
+							border-bottom:solid 0.3em #4580ba;
+						}
+						&:hover {
+							.sharelink {
+								background-color:lighten(#598dca,10%);
+								border-color:lighten(#4580ba,10%);
+							}
+						}
+					}
+					&.gp {
+						.sharelink {
+							background-color:#d95032;
+							border-bottom:solid 0.3em #c43f2a;
+						}
+						&:hover {
+							.sharelink {
+								background-color:lighten(#d95032,10%);
+								border-color:lighten(#c43f2a,10%);
+							}
+						}
+					}
+					&.em {
+						.sharelink {
+							background-color:#777777;
+							border-bottom:solid 0.3em #656565;
+						}
+						&:hover {
+							.sharelink {
+								background-color:lighten(#777777,10%);
+								border-color:lighten(#656565,10%);
+							}
+						}
+					}
+				}
+			}
+		}
+		p {
+			padding:0;
+		}
+
+		.linkbox {
+			display:block;
+			padding:1.5em 0.5em;
+			margin:1em 0 1.5em 0;
+			width:100%;
+			background:@white;
+			border-radius:4px;
+			font-size:1.5vmin;
+		}
+	}
+
+
+@media @pageWidth{
+}
+
+@media @tabletWidth{
+}
+
+@media @mobileWidth{
+}
+
+@media screen and (orientation:portrait) {
+	.orientation {
+		position:fixed;
+		z-index:900;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		.flex;
+		.justify-content(center);
+		.align-items(center);
+		background:url('../img/ron.svg') no-repeat 50% 50% @black;
+		background-size:100% auto;
+		.orientationmsg {
+			.flex;
+			width:100%;
+			.justify-content(center);
+			.align-items(center);
+			.font-sentinel-book();
+			color:@white;
+			.phoneimg {
+				max-width:15%;
+				img {
+			        .animation(rotatephone 2s ease-in infinite);
+				}
+			}
+			.text {
+				width:40%;
+				margin-left:10%;
+			}
+		}
+	}
+
+	.keyframes(rotatephone; {
+		0% {
+			.transform( rotate(0) );
+		}
+		50%,
+		100% {
+			.transform( rotate(90deg) );
+		}
+    });
+
+}
+@media screen and (orientation:landscape) {
+	.orientation {
+		display:none;
+	}
+}

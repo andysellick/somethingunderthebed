@@ -1,0 +1,5 @@
+.DS_Store
+node_modules/
+src/static/bower_components/
+dist/
+npm-debug.log
