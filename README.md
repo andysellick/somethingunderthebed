@@ -5,6 +5,8 @@ This is Something Under The Bed, a Javascript/jQuery game I devised and built fo
 
 You can see the live game here: https://builtvisible.com/something-under-the-bed/
 
+More details here: http://www.custarddoughnuts.co.uk/article/2016/12/24/something-under-the-bed
+
 Quick start
 -----------
 
