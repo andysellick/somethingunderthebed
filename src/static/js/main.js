@@ -97,19 +97,17 @@ app = {
 			'failmsg':'',
 		},
 	],
-	
-	sharefb: 'https://www.facebook.com/sharer/sharer.php?u=https%3A//builtvisible.com/wp-content/themes/builtvisible/src/custompages/monsters/',
+
+	sharefb: 'https://www.facebook.com/sharer/sharer.php?u=https%3A//custarddoughnuts.co.uk/public/files/sutb/sharedpages/',
 	sharetw: 'https://twitter.com/home?status=I%20survived%20til%20',
-	sharetw2: '%20-%20can%20you?%20https%3A//builtvisible.com/something-under-the-bed/',
-	sharegp: 'https://plus.google.com/share?url=https%3A//builtvisible.com/wp-content/themes/builtvisible/src/custompages/monsters/',
+	sharetw2: '%20-%20can%20you?%20https%3A//custarddoughnuts.co.uk/something-under-the-bed/',
 	shareem: 'mailto:?subject=I%20survived%20to%20',
-	shareem2: '%20-%20can%20you?&body=Play%20now:%20https%3A//builtvisible.com/something-under-the-bed/',
+	shareem2: '%20-%20can%20you?&body=Play%20now:%20https%3A//custarddoughnuts.co.uk/something-under-the-bed/',
 	sharewa: 'whatsapp://send?text=I survived to ',
-	sharewa2: ' - can you? https://builtvisible.com/something-under-the-bed/',
+	sharewa2: ' - can you? https://custarddoughnuts.co.uk/something-under-the-bed/',
 
 	linkfb: '.js-fb',
 	linktw: '.js-tw',
-	linkgp: '.js-gp',
 	linkem: '.js-em',
 	linkwa: '.js-wa',
 
@@ -218,9 +216,6 @@ app = {
 		$(app.linktw).each(function(){
 			$(this).attr('href',app.sharetw + app.levels[app.level].name + app.sharetw2);
 		});
-		$(app.linkgp).each(function(){
-			$(this).attr('href',app.sharegp + app.levels[app.level].name + '.html');
-		});
 		$(app.linkem).each(function(){
 			$(this).attr('href',app.shareem + app.levels[app.level].name + app.shareem2);
 		});
@@ -233,8 +228,8 @@ app = {
 		clock.find('.mins').stop(true,true).addClass('active').animate({
 			'opacity':1
 		},app.roundlength, function(){
-            $(this).removeClass('active');
-        });
+      $(this).removeClass('active');
+    });
 	},
 
 	resetClock: function(){
@@ -284,7 +279,7 @@ app = {
 			app.endLevel();
 		}
 	},
-	
+
 	//determine if game should end or not
 	keepScore: function(){
 		var threat = 100;
@@ -337,7 +332,7 @@ app = {
 			});
 		}
 	},
-	
+
 	//return all monsters to default state
 	resetMonsters: function(){
 		for(var z = 0; z < app.monsters.length; z++){
@@ -410,7 +405,7 @@ $(document).ready(function() {
 		app.resetGame();
 		app.startGame();
 	});
-	
+
 	$('.js-resetclock').on('click touchstart',function(e){
 		app.resetClock();
 		app.updateClock(1);
@@ -421,16 +416,16 @@ $(document).ready(function() {
 		e.stopPropagation();
 		app.clickMonster($(this).parent());
 	});
-	
+
 	$('.js-share').on('click',function(e){
 		e.preventDefault();
 		$('.js-sharing').removeClass('hidden');
 	});
-	
+
 	$('.linkbox').focus(function(){
 		$(this).select();
 	});
-	
+
 	$('.js-close').on('click',function(e){
 		e.preventDefault();
 		$('#sharing').addClass('hidden');
@@ -473,6 +468,6 @@ Embedding:
 .rwrap .r {position:absolute;top:0;left:0;width:100%;height:100%;}
 </style>
 <div class="rwrap">
-<iframe class="r" src="https://builtvisible.com/something-under-the-bed/" style="border:0;overflow:hidden;" scrolling="no"></iframe>
+<iframe class="r" src="http://custarddoughnuts.co.uk/something-under-the-bed/" style="border:0;overflow:hidden;" scrolling="no"></iframe>
 </div>
 */
