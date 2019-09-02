@@ -1,27 +1,27 @@
 /* --utility classes */
 
-	.align-center {text-align:center;}
-	.align-left {text-align:left;}
-	.align-right {text-align:right;}
-	.float-left {float:left;}
-	.float-right {float:right;}
-	.bold {font-weight:bold;}
-	.italic {font-style:italic;}
-	//.hidden {display:none;}
-	.block {display:block;}
-    
-/* --clearfix */
-	.clearfix(){
-		&:after {
-			content: "";
-			display: table;
-			clear: both;
-		}
-	}
+.align-center {text-align:center;}
+.align-left {text-align:left;}
+.align-right {text-align:right;}
+.float-left {float:left;}
+.float-right {float:right;}
+.bold {font-weight:bold;}
+.italic {font-style:italic;}
+//.hidden {display:none;}
+.block {display:block;}
 
-	.tablet-only { display: none; }
-	.mobile-only { display: none; }
-	.desktop-hide { display: none; }
+/* --clearfix */
+.clearfix(){
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+.tablet-only { display: none; }
+.mobile-only { display: none; }
+.desktop-hide { display: none; }
 
 @media @tabletWidth{
 	.desktop-only { display: none; }

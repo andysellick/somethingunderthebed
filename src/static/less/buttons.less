@@ -1,84 +1,83 @@
 /* --buttons */
-    /* button variables */
-    @btnhorzpadding: 1em; /* left and right padding for buttons */
-    @btnfontsize: 1.9em; /* button font size */
-    @btnlineheight: 1.2em; /* used to control the vertical padding of buttons, should therefore be larger than btnfontsize */
+/* button variables */
+@btnhorzpadding: 1em; /* left and right padding for buttons */
+@btnfontsize: 1.9em; /* button font size */
+@btnlineheight: 1.2em; /* used to control the vertical padding of buttons, should therefore be larger than btnfontsize */
 
-    /* almost! managed to normalise the heights across IEs, FF and everyone else */
-    input.btn {
-        padding-top:0;
-        padding-bottom:0;
-        height:@btnlineheight * 1.04;
-        &.btn-small {
-            height:@btnlineheight / 1.4;
-        }
+/* almost! managed to normalise the heights across IEs, FF and everyone else */
+input.btn {
+    padding-top:0;
+    padding-bottom:0;
+    height:@btnlineheight * 1.04;
+    &.btn-small {
+        height:@btnlineheight / 1.4;
+    }
+}
+
+@btnbg:#abf297;
+@btncol:#598c49;
+@btnshad:#598c49;
+
+.btn {
+    display:inline-block;
+    padding:0 @btnhorzpadding;
+    margin:0 0.2em;
+    min-width:5.6em;
+    line-height:@btnlineheight;
+    border:0;
+    border-radius:1px;
+    background:@btnbg;
+    box-shadow:0 5px 0 @btnshad;
+    .transition( all 0.2s );
+    color:@btncol;
+    outline:0;
+    cursor:pointer;
+    text-align:center;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size:@btnfontsize;
+    font-weight:bold;
+    vertical-align:middle;
+    font-family: 'ghoulish_fright_aoeregular','Arial',sans-serif;
+    border-collapse:separate; //fix for IE9
+    overflow:visible; //fix for IE7
+
+    &.btn-small {
+        font-size:@btnfontsize * 0.9;
+        line-height:@btnlineheight / 1.2;
+        font-weight:normal;
+    }
+    &.btn-large {
+        font-size:@btnfontsize * 1.4;
     }
 
-    @btnbg:#abf297;
-    @btncol:#598c49;
-    @btnshad:#598c49;
-
-    .btn {
-        display:inline-block;
-        padding:0 @btnhorzpadding;
-        margin:0 0.2em;
-        min-width:5.6em;
-        line-height:@btnlineheight;
-        border:0;
-        border-radius:1px;
-        background:@btnbg;
-        box-shadow:0 5px 0 @btnshad;
-        .transition( all 0.2s );
-        color:@btncol;
-        outline:0;
-        cursor:pointer;
-        text-align:center;
+    &:hover,
+    &:active {
+        background-color:#598c49;
+        color:#abf297;
         text-decoration:none;
-        text-transform:uppercase;
-        font-size:@btnfontsize;
-        font-weight:bold;
-        vertical-align:middle;
-        font-family: 'ghoulish_fright_aoeregular','Arial',sans-serif;
-        border-collapse:separate; //fix for IE9
-        overflow:visible; //fix for IE7
-
-        &.btn-small {
-            font-size:@btnfontsize * 0.9;
-            line-height:@btnlineheight / 1.2;
-            font-weight:normal;
-        }
-        &.btn-large {
-            font-size:@btnfontsize * 1.4;
-        }
-
-        &:hover,
-		&:active {
-            background-color:#598c49;
-            color:#abf297;
-			text-decoration:none;
-			box-shadow:0 5px 0 #3a5b2f;
-        }
-        &:active {
-			margin-top:5px;
-			margin-bottom:-5px;
-            box-shadow:0 -5px 0 #042530;
-            color:@white;
-		}
-        &.btn-block {
-            display:block;
-            width:100%;
-            text-align:left;
-            &.center {
-                text-align:center;
-            }
-        }
-        &[disabled],
-        &.disabled {
-            cursor:default;
-            text-decoration:line-through;
-        }
-
+        box-shadow:0 5px 0 #3a5b2f;
     }
+    &:active {
+     margin-top:5px;
+     margin-bottom:-5px;
+     box-shadow:0 -5px 0 #042530;
+     color:@white;
+     }
+     &.btn-block {
+        display:block;
+        width:100%;
+        text-align:left;
+        &.center {
+            text-align:center;
+        }
+    }
+    &[disabled],
+    &.disabled {
+        cursor:default;
+        text-decoration:line-through;
+    }
+}
 
 @media @tabletWidth{
 }
