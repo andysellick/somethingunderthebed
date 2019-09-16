@@ -98,13 +98,13 @@ app = {
 		},
 	],
 
-	sharefb: 'https://www.facebook.com/sharer/sharer.php?u=https%3A//custarddoughnuts.co.uk/public/files/sutb/sharedpages/',
+	sharefb: 'https://www.facebook.com/sharer/sharer.php?u=http%3A//www.custarddoughnuts.co.uk/public/files/somethingunderthebed/assets/files/',
 	sharetw: 'https://twitter.com/home?status=I%20survived%20til%20',
-	sharetw2: '%20-%20can%20you?%20https%3A//custarddoughnuts.co.uk/something-under-the-bed/',
+	sharetw2: '%20-%20can%20you?%20http%3A//www.custarddoughnuts.co.uk/something-under-the-bed/',
 	shareem: 'mailto:?subject=I%20survived%20to%20',
-	shareem2: '%20-%20can%20you?&body=Play%20now:%20https%3A//custarddoughnuts.co.uk/something-under-the-bed/',
+	shareem2: '%20-%20can%20you?&body=Play%20now:%20http%3A//www.custarddoughnuts.co.uk/something-under-the-bed/',
 	sharewa: 'whatsapp://send?text=I survived to ',
-	sharewa2: ' - can you? https://custarddoughnuts.co.uk/something-under-the-bed/',
+	sharewa2: ' - can you? http://www.custarddoughnuts.co.uk/something-under-the-bed/',
 
 	linkfb: '.js-fb',
 	linktw: '.js-tw',
